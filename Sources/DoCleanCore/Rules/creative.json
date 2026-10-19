@@ -1,0 +1,255 @@
+[
+ {
+  "id": "ae-disk-cache",
+  "tier": "green",
+  "category": "creative",
+  "palette": "adobe",
+  "title": {
+   "ru": "After Effects: дисковый кэш",
+   "en": "After Effects: disk cache"
+  },
+  "subtitle": {
+   "ru": "Кэши / Adobe",
+   "en": "Caches / Adobe"
+  },
+  "whySafe": {
+   "ru": "Кэш предпросмотра. After Effects пересоздаст его при следующей работе, проекты не затрагиваются.",
+   "en": "Preview cache. After Effects rebuilds it when you work; projects are untouched."
+  },
+  "roots": [
+   "~/Library/Caches/Adobe/After Effects"
+  ],
+  "requiresAppClosed": [
+   "com.adobe.AfterEffects*"
+  ],
+  "priority": 10
+ },
+ {
+  "id": "premiere-cache",
+  "tier": "green",
+  "category": "creative",
+  "palette": "adobe",
+  "title": {
+   "ru": "Premiere Pro: медиакэш",
+   "en": "Premiere Pro: media cache"
+  },
+  "subtitle": {
+   "ru": "Media Cache, peak-файлы",
+   "en": "Media Cache, peak files"
+  },
+  "whySafe": {
+   "ru": "Premiere пересоздаёт медиакэш и peak-файлы при открытии проекта. Исходники и проекты не затрагиваются.",
+   "en": "Premiere regenerates media cache and peak files when you open a project. Source media and projects are untouched."
+  },
+  "roots": [
+   "~/Library/Caches/Adobe/Premiere Pro",
+   "~/Library/Caches/Adobe/PProHeadless",
+   "~/Library/Application Support/Adobe/Common/Media Cache Files",
+   "~/Library/Application Support/Adobe/Common/Media Cache",
+   "~/Library/Application Support/Adobe/Common/Peak Files"
+  ],
+  "requiresAppClosed": [
+   "com.adobe.PremierePro*",
+   "com.adobe.ame.application*"
+  ],
+  "priority": 10
+ },
+ {
+  "id": "media-encoder-cache",
+  "tier": "green",
+  "category": "creative",
+  "palette": "adobe",
+  "title": {
+   "ru": "Media Encoder: кэш",
+   "en": "Media Encoder: cache"
+  },
+  "subtitle": {
+   "ru": "Кэши / Adobe",
+   "en": "Caches / Adobe"
+  },
+  "whySafe": {
+   "ru": "Служебный кэш кодировщика, пересоздаётся автоматически.",
+   "en": "Encoder's working cache, rebuilt automatically."
+  },
+  "roots": [
+   "~/Library/Caches/Adobe/Adobe Media Encoder"
+  ],
+  "requiresAppClosed": [
+   "com.adobe.ame.application*"
+  ],
+  "priority": 10
+ },
+ {
+  "id": "adobe-cc-caches",
+  "tier": "green",
+  "category": "creative",
+  "palette": "adobe",
+  "title": {
+   "ru": "Adobe Creative Cloud: кэши",
+   "en": "Adobe Creative Cloud: caches"
+  },
+  "subtitle": {
+   "ru": "Шрифты, цвет, служебные",
+   "en": "Fonts, color, services"
+  },
+  "whySafe": {
+   "ru": "Служебные кэши Creative Cloud. Приложения Adobe создают их заново.",
+   "en": "Creative Cloud service caches; Adobe apps rebuild them."
+  },
+  "roots": [
+   "~/Library/Caches/Adobe"
+  ],
+  "excludeNames": [
+   "After Effects",
+   "Premiere Pro",
+   "PProHeadless",
+   "Adobe Media Encoder"
+  ],
+  "requiresAppClosed": [
+   "com.adobe.AfterEffects*",
+   "com.adobe.PremierePro*",
+   "com.adobe.ame.application*",
+   "com.adobe.Photoshop",
+   "com.adobe.illustrator"
+  ],
+  "priority": 20
+ },
+ {
+  "id": "adobe-bundle-caches",
+  "tier": "green",
+  "category": "creative",
+  "palette": "adobe",
+  "title": {
+   "ru": "Кэши com.adobe.*",
+   "en": "com.adobe.* caches"
+  },
+  "subtitle": {
+   "ru": "Библиотека / Caches",
+   "en": "Library / Caches"
+  },
+  "whySafe": {
+   "ru": "Кэши приложений Adobe; создаются заново.",
+   "en": "Adobe app caches; recreated on demand."
+  },
+  "roots": [
+   "~/Library/Caches"
+  ],
+  "patterns": [
+   "com.adobe.*"
+  ],
+  "minAgeDays": 2,
+  "requiresAppClosed": [
+   "com.adobe.AfterEffects*",
+   "com.adobe.PremierePro*",
+   "com.adobe.ame.application*",
+   "com.adobe.Photoshop",
+   "com.adobe.illustrator"
+  ],
+  "priority": 20
+ },
+ {
+  "id": "blender-cycles-cache",
+  "tier": "green",
+  "category": "creative",
+  "palette": "system",
+  "title": {
+   "ru": "Blender: кэш Cycles",
+   "en": "Blender: Cycles cache"
+  },
+  "subtitle": {
+   "ru": "~/.cache/cycles",
+   "en": "~/.cache/cycles"
+  },
+  "whySafe": {
+   "ru": "Скомпилированные ядра рендера. Blender соберёт их заново (первый рендер будет чуть дольше).",
+   "en": "Compiled render kernels. Blender rebuilds them (the first render is a bit slower)."
+  },
+  "roots": [
+   "~/.cache/cycles"
+  ],
+  "requiresAppClosed": [
+   "org.blenderfoundation.blender"
+  ]
+ },
+ {
+  "id": "blender-temp-renders",
+  "tier": "green",
+  "category": "creative",
+  "palette": "system",
+  "title": {
+   "ru": "Blender: временные рендеры",
+   "en": "Blender: temp renders"
+  },
+  "subtitle": {
+   "ru": "/tmp/*.png, *.exr старше 1 дня",
+   "en": "/tmp/*.png, *.exr older than 1 day"
+  },
+  "whySafe": {
+   "ru": "Временные кадры рендера в /tmp. Готовые рендеры лежат в папке вывода проекта.",
+   "en": "Temporary render frames in /tmp. Finished renders live in the project's output folder."
+  },
+  "roots": [
+   "/tmp"
+  ],
+  "itemMode": "files",
+  "patterns": [
+   "*.png",
+   "*.exr"
+  ],
+  "recursive": false,
+  "minAgeDays": 1,
+  "requiresAppClosed": [
+   "org.blenderfoundation.blender"
+  ]
+ },
+ {
+  "id": "davinci-cacheclip",
+  "tier": "green",
+  "category": "creative",
+  "palette": "system",
+  "title": {
+   "ru": "DaVinci Resolve: CacheClip",
+   "en": "DaVinci Resolve: CacheClip"
+  },
+  "subtitle": {
+   "ru": "~/Movies/CacheClip",
+   "en": "~/Movies/CacheClip"
+  },
+  "whySafe": {
+   "ru": "Кэш рендера Resolve; он пересоздаётся при воспроизведении.",
+   "en": "Resolve's render cache; regenerated on playback."
+  },
+  "roots": [
+   "~/Movies/CacheClip"
+  ],
+  "requiresAppClosed": [
+   "com.blackmagic-design.DaVinciResolve"
+  ]
+ },
+ {
+  "id": "fcp-render-files",
+  "tier": "yellow",
+  "category": "creative",
+  "palette": "system",
+  "title": {
+   "ru": "Final Cut / Motion: render-файлы",
+   "en": "Final Cut / Motion: render files"
+  },
+  "subtitle": {
+   "ru": "Внутри библиотек .fcpbundle",
+   "en": "Inside .fcpbundle libraries"
+  },
+  "whySafe": {
+   "ru": "Это только кэш рендера внутри библиотеки; оригиналы медиа не затрагиваются. Final Cut отрендерит заново.",
+   "en": "Only the render cache inside a library; original media is untouched. Final Cut re-renders on demand."
+  },
+  "roots": [
+   "~/Movies"
+  ],
+  "kind": "fcpRender",
+  "requiresAppClosed": [
+   "com.apple.FinalCut",
+   "com.apple.motionapp"
+  ]
+ }
+]

@@ -1,0 +1,323 @@
+[
+ {
+  "id": "xcode-derived-data",
+  "tier": "green",
+  "category": "dev",
+  "palette": "xcode",
+  "title": {
+   "ru": "Xcode: DerivedData",
+   "en": "Xcode: DerivedData"
+  },
+  "subtitle": {
+   "ru": "Промежуточные сборки",
+   "en": "Build intermediates"
+  },
+  "whySafe": {
+   "ru": "Результаты сборки. Xcode пересоберёт проект (следующая сборка будет дольше).",
+   "en": "Build products. Xcode rebuilds the project (the next build is slower)."
+  },
+  "roots": [
+   "~/Library/Developer/Xcode/DerivedData"
+  ],
+  "requiresAppClosed": [
+   "com.apple.dt.Xcode"
+  ]
+ },
+ {
+  "id": "xcode-caches",
+  "tier": "green",
+  "category": "dev",
+  "palette": "xcode",
+  "title": {
+   "ru": "Xcode: превью и кэши",
+   "en": "Xcode: previews & caches"
+  },
+  "subtitle": {
+   "ru": "Previews, кэши модулей",
+   "en": "Previews, module caches"
+  },
+  "whySafe": {
+   "ru": "Кэши Xcode и превью SwiftUI; пересоздаются автоматически.",
+   "en": "Xcode and SwiftUI preview caches; recreated automatically."
+  },
+  "roots": [
+   "~/Library/Caches/com.apple.dt.Xcode",
+   "~/Library/Developer/Xcode/UserData/Previews",
+   "~/Library/Developer/CoreSimulator/Caches"
+  ],
+  "requiresAppClosed": [
+   "com.apple.dt.Xcode"
+  ],
+  "priority": 20
+ },
+ {
+  "id": "ios-device-support",
+  "tier": "yellow",
+  "category": "dev",
+  "palette": "xcode",
+  "title": {
+   "ru": "iOS DeviceSupport",
+   "en": "iOS DeviceSupport"
+  },
+  "subtitle": {
+   "ru": "Все версии, кроме самой новой",
+   "en": "All versions except the newest"
+  },
+  "whySafe": {
+   "ru": "Xcode копирует символы с устройства при подключении. Старые версии нужны только для отладки на устройствах с этой iOS; при подключении Xcode скачает заново.",
+   "en": "Xcode copies device symbols when you connect a device. Old versions only matter for debugging devices on that iOS; Xcode re-downloads them on connect."
+  },
+  "roots": [
+   "~/Library/Developer/Xcode/iOS DeviceSupport",
+   "~/Library/Developer/Xcode/watchOS DeviceSupport",
+   "~/Library/Developer/Xcode/tvOS DeviceSupport"
+  ],
+  "kind": "deviceSupport",
+  "requiresAppClosed": [
+   "com.apple.dt.Xcode"
+  ]
+ },
+ {
+  "id": "simulators-unavailable",
+  "tier": "green",
+  "category": "dev",
+  "palette": "xcode",
+  "title": {
+   "ru": "Симуляторы: недоступные",
+   "en": "Simulators: unavailable"
+  },
+  "subtitle": {
+   "ru": "xcrun simctl delete unavailable",
+   "en": "xcrun simctl delete unavailable"
+  },
+  "whySafe": {
+   "ru": "Недоступные симуляторы остались от старых версий Xcode и не запускаются.",
+   "en": "Unavailable simulators are leftovers of old Xcode versions and cannot boot."
+  },
+  "roots": [
+   "~/Library/Developer/CoreSimulator/Devices"
+  ],
+  "kind": "simctlUnavailable",
+  "deletion": "command",
+  "command": [
+   "xcrun",
+   "simctl",
+   "delete",
+   "unavailable"
+  ],
+  "requiresAppClosed": [
+   "com.apple.dt.Xcode",
+   "com.apple.iphonesimulator"
+  ]
+ },
+ {
+  "id": "simulators-data",
+  "tier": "yellow",
+  "category": "dev",
+  "palette": "xcode",
+  "title": {
+   "ru": "Симуляторы: все данные",
+   "en": "Simulators: all data"
+  },
+  "subtitle": {
+   "ru": "xcrun simctl erase all",
+   "en": "xcrun simctl erase all"
+  },
+  "whySafe": {
+   "ru": "Стирает установленные приложения и данные во всех симуляторах; сами симуляторы остаются. Данные тестовые, но придётся ставить приложения заново.",
+   "en": "Erases installed apps and data in every simulator; the simulators stay. Test data only, but apps must be reinstalled."
+  },
+  "roots": [
+   "~/Library/Developer/CoreSimulator/Devices"
+  ],
+  "kind": "simctlEraseAll",
+  "deletion": "command",
+  "command": [
+   "xcrun",
+   "simctl",
+   "erase",
+   "all"
+  ],
+  "requiresAppClosed": [
+   "com.apple.dt.Xcode",
+   "com.apple.iphonesimulator"
+  ]
+ },
+ {
+  "id": "xcode-archives",
+  "tier": "yellow",
+  "category": "dev",
+  "palette": "xcode",
+  "title": {
+   "ru": "Xcode: архивы",
+   "en": "Xcode: archives"
+  },
+  "subtitle": {
+   "ru": "Archives",
+   "en": "Archives"
+  },
+  "whySafe": {
+   "ru": "Архивы собранных приложений. Внимание: в них dSYM для расшифровки крашей уже выпущенных версий.",
+   "en": "Archives of built apps. Note: they hold dSYMs for symbolicating crashes of released versions."
+  },
+  "roots": [
+   "~/Library/Developer/Xcode/Archives"
+  ],
+  "requiresAppClosed": [
+   "com.apple.dt.Xcode"
+  ]
+ },
+ {
+  "id": "homebrew-cleanup",
+  "tier": "green",
+  "category": "dev",
+  "palette": "xcode",
+  "title": {
+   "ru": "Homebrew: cleanup",
+   "en": "Homebrew: cleanup"
+  },
+  "subtitle": {
+   "ru": "brew cleanup",
+   "en": "brew cleanup"
+  },
+  "whySafe": {
+   "ru": "Удаляет скачанные установщики и старые версии формул. Установленные пакеты не затрагиваются.",
+   "en": "Removes downloaded installers and old formula versions. Installed packages are untouched."
+  },
+  "roots": [
+   "~/Library/Caches/Homebrew"
+  ],
+  "kind": "brewCleanup",
+  "deletion": "command",
+  "command": [
+   "brew",
+   "cleanup",
+   "--prune=all"
+  ]
+ },
+ {
+  "id": "npm-cache",
+  "tier": "yellow",
+  "category": "dev",
+  "palette": "xcode",
+  "title": {
+   "ru": "Кэш npm",
+   "en": "npm cache"
+  },
+  "subtitle": {
+   "ru": "~/.npm",
+   "en": "~/.npm"
+  },
+  "whySafe": {
+   "ru": "Скачанные пакеты. npm скачает нужные заново.",
+   "en": "Downloaded packages; npm re-fetches what it needs."
+  },
+  "roots": [
+   "~/.npm/_cacache"
+  ]
+ },
+ {
+  "id": "yarn-pnpm-cache",
+  "tier": "yellow",
+  "category": "dev",
+  "palette": "xcode",
+  "title": {
+   "ru": "Кэш yarn и pnpm",
+   "en": "yarn & pnpm caches"
+  },
+  "subtitle": {
+   "ru": "Хранилища пакетов",
+   "en": "Package stores"
+  },
+  "whySafe": {
+   "ru": "Скачанные пакеты. Менеджеры скачают заново.",
+   "en": "Downloaded packages; the managers re-fetch them."
+  },
+  "roots": [
+   "~/Library/Caches/Yarn",
+   "~/Library/pnpm/store",
+   "~/.local/share/pnpm/store",
+   "~/.yarn/berry/cache"
+  ]
+ },
+ {
+  "id": "pip-uv-cache",
+  "tier": "yellow",
+  "category": "dev",
+  "palette": "xcode",
+  "title": {
+   "ru": "Кэш pip и uv",
+   "en": "pip & uv caches"
+  },
+  "subtitle": {
+   "ru": "Python",
+   "en": "Python"
+  },
+  "whySafe": {
+   "ru": "Скачанные колёса и сборки. Менеджеры скачают заново.",
+   "en": "Downloaded wheels and builds; re-fetched on demand."
+  },
+  "roots": [
+   "~/Library/Caches/pip",
+   "~/.cache/uv",
+   "~/.cache/pip"
+  ]
+ },
+ {
+  "id": "node-modules",
+  "tier": "yellow",
+  "category": "dev",
+  "palette": "xcode",
+  "title": {
+   "ru": "node_modules старых проектов",
+   "en": "node_modules of old projects"
+  },
+  "subtitle": {
+   "ru": "Проекты без активности 30+ дней",
+   "en": "Projects idle for 30+ days"
+  },
+  "whySafe": {
+   "ru": "Папку можно восстановить командой npm install. Удаляем только в проектах, где 30 дней ничего не менялось.",
+   "en": "Restorable with npm install. Only projects with no activity for 30 days."
+  },
+  "roots": [
+   "~/Developer",
+   "~/Projects",
+   "~/Code",
+   "~/dev",
+   "~/src",
+   "~/work",
+   "~/repos",
+   "~/GitHub",
+   "~/git"
+  ],
+  "kind": "nodeModules",
+  "minAgeDays": 30
+ },
+ {
+  "id": "docker",
+  "tier": "yellow",
+  "category": "dev",
+  "palette": "xcode",
+  "title": {
+   "ru": "Docker: prune",
+   "en": "Docker: prune"
+  },
+  "subtitle": {
+   "ru": "docker system prune",
+   "en": "docker system prune"
+  },
+  "whySafe": {
+   "ru": "Удаляет остановленные контейнеры, неиспользуемые сети и «висячие» образы. Работающие контейнеры и тома не затрагиваются.",
+   "en": "Removes stopped containers, unused networks and dangling images. Running containers and volumes are untouched."
+  },
+  "kind": "dockerPrune",
+  "deletion": "command",
+  "command": [
+   "docker",
+   "system",
+   "prune",
+   "-f"
+  ]
+ }
+]

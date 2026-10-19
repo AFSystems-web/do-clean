@@ -1,0 +1,94 @@
+[
+ {
+  "id": "huggingface",
+  "tier": "yellow",
+  "category": "ai",
+  "palette": "ai",
+  "title": {
+   "ru": "HuggingFace: модели",
+   "en": "HuggingFace: models"
+  },
+  "subtitle": {
+   "ru": "По моделям",
+   "en": "Per model"
+  },
+  "whySafe": {
+   "ru": "Кэш скачанных моделей. Любая модель скачается заново при следующем использовании (может потребоваться интернет и время).",
+   "en": "Cache of downloaded models. Each model re-downloads on next use (needs network and time)."
+  },
+  "roots": [
+   "~/.cache/huggingface"
+  ],
+  "kind": "huggingface"
+ },
+ {
+  "id": "ollama-models",
+  "tier": "yellow",
+  "category": "ai",
+  "palette": "ai",
+  "title": {
+   "ru": "Ollama: модели",
+   "en": "Ollama: models"
+  },
+  "subtitle": {
+   "ru": "~/.ollama/models",
+   "en": "~/.ollama/models"
+  },
+  "whySafe": {
+   "ru": "Скачанные модели. `ollama pull` вернёт нужные.",
+   "en": "Downloaded models; `ollama pull` brings back what you need."
+  },
+  "roots": [
+   "~/.ollama/models"
+  ],
+  "itemMode": "root"
+ },
+ {
+  "id": "lmstudio-models",
+  "tier": "yellow",
+  "category": "ai",
+  "palette": "ai",
+  "title": {
+   "ru": "LM Studio: модели",
+   "en": "LM Studio: models"
+  },
+  "subtitle": {
+   "ru": "По моделям",
+   "en": "Per model"
+  },
+  "whySafe": {
+   "ru": "Скачанные модели; LM Studio скачает заново.",
+   "en": "Downloaded models; LM Studio re-downloads."
+  },
+  "roots": [
+   "~/.lmstudio/models",
+   "~/.cache/lm-studio/models"
+  ],
+  "childDepth": 2
+ },
+ {
+  "id": "codex-runtimes",
+  "tier": "yellow",
+  "category": "ai",
+  "palette": "ai",
+  "title": {
+   "ru": "Codex: старые установки рантайма",
+   "en": "Codex: stale runtime installs"
+  },
+  "subtitle": {
+   "ru": "codex-runtime-install-*",
+   "en": "codex-runtime-install-*"
+  },
+  "whySafe": {
+   "ru": "Остатки установок рантайма. Рабочий codex-primary-runtime не затрагивается.",
+   "en": "Leftover runtime installers. The working codex-primary-runtime is untouched."
+  },
+  "roots": [
+   "~/.cache/codex-runtimes"
+  ],
+  "patterns": [
+   "codex-runtime-install-*"
+  ],
+  "minAgeDays": 1
+ }
+]

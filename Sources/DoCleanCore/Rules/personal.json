@@ -1,0 +1,50 @@
+[
+ {
+  "id": "trash",
+  "tier": "yellow",
+  "category": "personal",
+  "palette": "system",
+  "title": {
+   "ru": "Корзина",
+   "en": "Trash"
+  },
+  "subtitle": {
+   "ru": "Очистка Корзины",
+   "en": "Empty the Trash"
+  },
+  "whySafe": {
+   "ru": "Файлы уже в Корзине. Внимание: это безвозвратное удаление.",
+   "en": "Files already in the Trash. Note: this deletes permanently."
+  },
+  "roots": [
+   "~/.Trash"
+  ],
+  "deletion": "delete"
+ },
+ {
+  "id": "downloads",
+  "tier": "red",
+  "category": "personal",
+  "palette": "downloads",
+  "title": {
+   "ru": "Загрузки",
+   "en": "Downloads"
+  },
+  "subtitle": {
+   "ru": "Файл за файлом",
+   "en": "File by file"
+  },
+  "whySafe": {
+   "ru": "Это твои файлы. Каждый показывается списком и уходит только в Корзину, откуда его можно вернуть.",
+   "en": "These are your files. Each is listed and goes to the Trash only, where you can restore it."
+  },
+  "roots": [
+   "~/Downloads"
+  ],
+  "excludeNames": [
+   "*.crdownload",
+   "*.download",
+   "*.part"
+  ]
+ }
+]

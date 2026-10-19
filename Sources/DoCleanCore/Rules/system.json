@@ -1,0 +1,238 @@
+[
+ {
+  "id": "user-caches",
+  "tier": "green",
+  "category": "system",
+  "palette": "system",
+  "title": {
+   "ru": "Кэши программ",
+   "en": "App caches"
+  },
+  "subtitle": {
+   "ru": "Библиотека / Caches",
+   "en": "Library / Caches"
+  },
+  "whySafe": {
+   "ru": "Программы создают эти кэши заново. Системные кэши Apple и браузеров сюда не входят; свежее (младше 2 дней) не трогаем.",
+   "en": "Apps rebuild these caches on their own. Apple system and browser caches are excluded; anything newer than 2 days is left alone."
+  },
+  "roots": [
+   "~/Library/Caches"
+  ],
+  "excludeNames": [
+   "com.apple.*",
+   "CloudKit",
+   "Adobe",
+   "Homebrew",
+   "Google",
+   "Firefox",
+   "Mozilla",
+   "Yandex",
+   "company.thebrowser.Browser",
+   "com.adobe.*",
+   "pip",
+   "Yarn",
+   "app.do.clean*",
+   "org.swift.swiftpm"
+  ],
+  "minAgeDays": 2,
+  "priority": 900
+ },
+ {
+  "id": "user-logs",
+  "tier": "green",
+  "category": "system",
+  "palette": "system",
+  "title": {
+   "ru": "Логи и отчёты о сбоях",
+   "en": "Logs & crash reports"
+  },
+  "subtitle": {
+   "ru": "Библиотека / Logs",
+   "en": "Library / Logs"
+  },
+  "whySafe": {
+   "ru": "Журналы нужны только для диагностики. Система и программы пишут новые.",
+   "en": "Logs are only for diagnostics; new ones get written as needed."
+  },
+  "roots": [
+   "~/Library/Logs"
+  ],
+  "minAgeDays": 2
+ },
+ {
+  "id": "temp-files",
+  "tier": "green",
+  "category": "system",
+  "palette": "system",
+  "title": {
+   "ru": "Временные файлы",
+   "en": "Temporary files"
+  },
+  "subtitle": {
+   "ru": "$TMPDIR старше 3 дней",
+   "en": "$TMPDIR older than 3 days"
+  },
+  "whySafe": {
+   "ru": "Временные папки программ. Удаляем только то, что не менялось 3 дня и не принадлежит системе.",
+   "en": "Per-app temp folders. Only items untouched for 3 days and not owned by the system."
+  },
+  "roots": [
+   "$TMPDIR"
+  ],
+  "excludeNames": [
+   "com.apple.*",
+   "TemporaryItems",
+   "cvmsCodeSignObjC*",
+   "*.sock",
+   "T"
+  ],
+  "minAgeDays": 3
+ },
+ {
+  "id": "safari-cache",
+  "tier": "green",
+  "category": "system",
+  "palette": "system",
+  "title": {
+   "ru": "Кэш Safari",
+   "en": "Safari cache"
+  },
+  "subtitle": {
+   "ru": "Только кэш, без истории и паролей",
+   "en": "Cache only, no history or passwords"
+  },
+  "whySafe": {
+   "ru": "Это кэш страниц: Safari скачает нужное заново. История, закладки и пароли лежат в других местах и не затрагиваются.",
+   "en": "Page cache only; Safari re-downloads what it needs. History, bookmarks and passwords live elsewhere and are untouched."
+  },
+  "roots": [
+   "~/Library/Caches/com.apple.Safari"
+  ],
+  "requiresAppClosed": [
+   "com.apple.Safari"
+  ]
+ },
+ {
+  "id": "chrome-cache",
+  "tier": "green",
+  "category": "system",
+  "palette": "system",
+  "title": {
+   "ru": "Кэш Chrome",
+   "en": "Chrome cache"
+  },
+  "subtitle": {
+   "ru": "Только кэш",
+   "en": "Cache only"
+  },
+  "whySafe": {
+   "ru": "Кэш страниц; профиль, пароли и история не затрагиваются.",
+   "en": "Page cache; profile, passwords and history are untouched."
+  },
+  "roots": [
+   "~/Library/Caches/Google/Chrome"
+  ],
+  "requiresAppClosed": [
+   "com.google.Chrome*"
+  ]
+ },
+ {
+  "id": "arc-cache",
+  "tier": "green",
+  "category": "system",
+  "palette": "system",
+  "title": {
+   "ru": "Кэш Arc",
+   "en": "Arc cache"
+  },
+  "subtitle": {
+   "ru": "Только кэш",
+   "en": "Cache only"
+  },
+  "whySafe": {
+   "ru": "Кэш страниц; профиль и пароли не затрагиваются.",
+   "en": "Page cache; profile and passwords are untouched."
+  },
+  "roots": [
+   "~/Library/Caches/company.thebrowser.Browser"
+  ],
+  "requiresAppClosed": [
+   "company.thebrowser.Browser"
+  ]
+ },
+ {
+  "id": "firefox-cache",
+  "tier": "green",
+  "category": "system",
+  "palette": "system",
+  "title": {
+   "ru": "Кэш Firefox",
+   "en": "Firefox cache"
+  },
+  "subtitle": {
+   "ru": "Только кэш",
+   "en": "Cache only"
+  },
+  "whySafe": {
+   "ru": "Кэш страниц; профиль и пароли не затрагиваются.",
+   "en": "Page cache; profile and passwords are untouched."
+  },
+  "roots": [
+   "~/Library/Caches/Firefox",
+   "~/Library/Caches/Mozilla"
+  ],
+  "requiresAppClosed": [
+   "org.mozilla.firefox"
+  ]
+ },
+ {
+  "id": "yandex-cache",
+  "tier": "green",
+  "category": "system",
+  "palette": "system",
+  "title": {
+   "ru": "Кэш Яндекс Браузера",
+   "en": "Yandex Browser cache"
+  },
+  "subtitle": {
+   "ru": "Только кэш",
+   "en": "Cache only"
+  },
+  "whySafe": {
+   "ru": "Кэш страниц; профиль и пароли не затрагиваются.",
+   "en": "Page cache; profile and passwords are untouched."
+  },
+  "roots": [
+   "~/Library/Caches/Yandex"
+  ],
+  "requiresAppClosed": [
+   "ru.yandex.desktop.yandex-browser"
+  ]
+ },
+ {
+  "id": "mail-downloads",
+  "tier": "green",
+  "category": "system",
+  "palette": "system",
+  "title": {
+   "ru": "Вложения Почты",
+   "en": "Mail attachments cache"
+  },
+  "subtitle": {
+   "ru": "Mail Downloads старше 7 дней",
+   "en": "Mail Downloads older than 7 days"
+  },
+  "whySafe": {
+   "ru": "Это копии вложений: оригиналы остаются в письмах на сервере и в Почте.",
+   "en": "These are copies of attachments; the originals stay in your mail."
+  },
+  "roots": [
+   "~/Library/Containers/com.apple.mail/Data/Library/Mail Downloads"
+  ],
+  "minAgeDays": 7,
+  "requiresAppClosed": [
+   "com.apple.mail"
+  ]
+ }
+]
